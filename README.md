@@ -3,14 +3,14 @@
 **CS301 2024-2025 Summer Project**
 **Group 145 - Aras Samuk 32493**
 
-## 📋 Project Overview
+## Project Overview
 
 This repository contains a complete implementation of the **Subset Sum Problem** for CS301 Algorithm Analysis course. The project implements both exact (brute force) and heuristic algorithms with comprehensive analysis following academic standards.
 
-### 🎯 Problem Definition
+### Problem Definition
 Given a multiset S = {s₁, s₂, ..., sₙ} of positive integers and a target t, find a subset S' ⊆ S that maximizes the sum without exceeding t.
 
-## 🔧 Implemented Algorithms
+## Implemented Algorithms
 
 ### Exact Algorithms
 - **Brute Force Decision:** O(2ⁿ) - Returns yes/no for exact target match
@@ -21,24 +21,24 @@ Given a multiset S = {s₁, s₂, ..., sₙ} of positive integers and a target t
 - **Improved Greedy:** O(n²) - Efficiency-based selection strategy
 - **DP Approximation:** O(n·t) - Dynamic programming for small instances
 
-## 📊 Project Results
+## Project Results
 
-### ✅ Implementation Quality
+### Implementation Quality
 - **568 tests executed** - 100% success rate
 - **5 algorithms implemented** with advanced optimizations
 - **60% performance improvement** through pruning techniques
 
-### ✅ Statistical Analysis
+### Statistical Analysis
 - **360 performance measurements** with 90% confidence intervals
 - **87.5% narrow intervals** (exceeds CS301 75% requirement)
 - **R² > 0.98** curve fitting validation
 
-### ✅ Algorithm Quality
+### Algorithm Quality
 - **DP Approximation:** 95.3% perfect solutions
 - **Improved Greedy:** 67.8% optimal results
 - **All algorithms:** 100% feasibility rate
 
-## 🗂️ Project Structure
+## Project Structure
 
 ```
 ├── src/                          # Source code
@@ -59,7 +59,7 @@ Given a multiset S = {s₁, s₂, ..., sₙ} of positive integers and a target t
 └── README.md                   # This file
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Installation
 ```bash
@@ -98,7 +98,7 @@ python analysis/section6_performance.py
 python analysis/section7_quality.py
 ```
 
-## 📈 Performance Benchmarks
+## Performance Benchmarks
 
 | Algorithm | Time Complexity | Space | Quality | Speed (n=200) |
 |-----------|----------------|-------|---------|---------------|
@@ -107,23 +107,23 @@ python analysis/section7_quality.py
 | Improved Greedy | O(n²) | O(n) | 91.2% | 0.000021s |
 | DP Approximation | O(n log n) | O(n) | 99.1% | 0.000021s |
 
-## 📚 Academic Compliance
+## Academic Compliance
 
 This project fulfills all CS301 template requirements:
 
-- ✅ **Section 1-3:** Problem description, algorithms, analysis (by teammate)
-- ✅ **Section 4:** Random instance generator
-- ✅ **Section 5:** Algorithm implementations with testing
-- ✅ **Section 6:** Statistical performance analysis (90% confidence intervals)
-- ✅ **Section 7:** Heuristic quality analysis vs optimal solutions
-- ✅ **Section 8:** Functional testing for implementation correctness
+- **Section 1-3:** Problem description, algorithms, analysis (by teammate)
+- **Section 4:** Random instance generator
+- **Section 5:** Algorithm implementations with testing
+- **Section 6:** Statistical performance analysis (90% confidence intervals)
+- **Section 7:** Heuristic quality analysis vs optimal solutions
+- **Section 8:** Functional testing for implementation correctness
 
 ### Statistical Quality
 - **Confidence Level:** 90% maintained throughout
 - **Narrow Intervals:** 87.5% achievement (>75% CS301 requirement)
 - **Curve Fitting:** R² > 0.98 (theoretical vs experimental validation)
 
-## 🏆 Key Achievements
+## Key Achievements
 
 1. **Advanced Algorithm Optimizations**
    - Suffix sum pruning for brute force
@@ -142,7 +142,7 @@ This project fulfills all CS301 template requirements:
    - Quality metrics analysis
    - Professional documentation
 
-## 📄 Citation
+## Citation
 
 ```bibtex
 @misc{cs301_subset_sum_2024,
@@ -153,12 +153,6 @@ This project fulfills all CS301 template requirements:
   note={Complete implementation with statistical analysis}
 }
 ```
-
-## 📞 Contact
-
-**Aras Samuk - 32493**
-CS301 2024-2025 Summer
-Group 145
 
 ---
 
