@@ -1,6 +1,6 @@
 # CS301 Subset Sum Problem - Group 145
 
-**CS301 2024-2025 Summer Project**
+**CS301 Project**
 **Group 145 - Aras Samuk 32493**
 
 ## Project Overview
@@ -141,18 +141,6 @@ This project fulfills all CS301 template requirements:
    - Performance validation with curve fitting
    - Quality metrics analysis
    - Professional documentation
-
-## Citation
-
-```bibtex
-@misc{cs301_subset_sum_2024,
-  title={CS301 Subset Sum Problem Implementation},
-  author={Aras Samuk},
-  year={2024},
-  institution={CS301 Algorithm Analysis Course},
-  note={Complete implementation with statistical analysis}
-}
-```
 
 ---
 
