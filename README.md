@@ -1,8 +1,7 @@
 # CS301 Subset Sum Problem - Group 145
 
 **CS301 Project**
-**Group 145 - Aras Samuk 32493**
-
+**Group 145 - Aras Samuk 32493, Sarp Eren Cankur 29387, Berkay Türeyen**
 ## Project Overview
 
 This repository contains a complete implementation of the **Subset Sum Problem** for CS301 Algorithm Analysis course. The project implements both exact (brute force) and heuristic algorithms with comprehensive analysis following academic standards.
