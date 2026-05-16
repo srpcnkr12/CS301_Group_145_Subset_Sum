@@ -84,7 +84,7 @@ class PerformanceAnalyzer:
 
             # Check narrow interval requirement (b/a < 0.1)
             relative_error = margin_error / mean_time if mean_time > 0 else float('inf')
-            is_narrow = relative_error < 0.1
+            is_narrow = bool(relative_error < 0.1)
 
             if is_narrow:
                 narrow_intervals += 1

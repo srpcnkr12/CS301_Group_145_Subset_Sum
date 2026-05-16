@@ -172,16 +172,16 @@ def section5_2_heuristic_testing():
                 config['size'], min_val=1, max_val=50, target_ratio=config['target_ratio']
             )
         elif config['type'] == 'clustered':
-            multiset, target = generator.generate_clustered_values(
-                config['size'], num_clusters=config['clusters'], cluster_width=10, target_ratio=0.5
+            multiset, target = generator.generate_correlated_instance(
+                config['size'], correlation_strength=0.7
             )
         elif config['type'] == 'high_density':
-            multiset, target = generator.generate_high_density(
-                config['size'], target_ratio=config['target_ratio']
+            multiset, target = generator.generate_hard_instance(
+                config['size'], "dense"
             )
         else:  # low_density
-            multiset, target = generator.generate_low_density(
-                config['size'], target_ratio=config['target_ratio']
+            multiset, target = generator.generate_hard_instance(
+                config['size'], "sparse"
             )
 
         samples.append({

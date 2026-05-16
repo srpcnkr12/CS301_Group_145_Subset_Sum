@@ -50,16 +50,16 @@ def run_section7_quality_analysis():
                         size, min_val=1, max_val=20, target_ratio=0.4 + trial * 0.1
                     )
                 elif instance_type == 'clustered':
-                    multiset, target = generator.generate_clustered_values(
-                        size, num_clusters=3, cluster_width=8, target_ratio=0.5
+                    multiset, target = generator.generate_correlated_instance(
+                        size, correlation_strength=0.7
                     )
                 elif instance_type == 'high_density':
-                    multiset, target = generator.generate_high_density(
-                        size, target_ratio=0.7 + trial * 0.05
+                    multiset, target = generator.generate_hard_instance(
+                        size, "dense"
                     )
                 else:  # low_density
-                    multiset, target = generator.generate_low_density(
-                        size, target_ratio=0.2 + trial * 0.05
+                    multiset, target = generator.generate_hard_instance(
+                        size, "sparse"
                     )
 
                 test_instances.append({

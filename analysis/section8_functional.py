@@ -213,7 +213,7 @@ def run_section8_functional_testing():
         try:
             # Generate random instance
             multiset, target = generator.generate_uniform_random(
-                size=8, min_val=1, max_val=15, target_ratio=0.6
+                8, min_val=1, max_val=15, target_ratio=0.6
             )
 
             solver = SubsetSumSolver(multiset, target)
@@ -307,7 +307,7 @@ def run_section8_functional_testing():
         try:
             # Generate small instance for brute force comparison
             multiset, target = generator.generate_uniform_random(
-                size=10, min_val=1, max_val=12, target_ratio=0.5
+                10, min_val=1, max_val=12, target_ratio=0.5
             )
 
             solver = SubsetSumSolver(multiset, target)
