@@ -210,7 +210,10 @@ class SubsetSumSolver:
                 efficiency = value / remaining_space if remaining_space > 0 else 0
 
                 # Be more selective as we approach target
-                if efficiency >= 0.3 or remaining_space >= value * 2:
+                # Use theoretical threshold: include if efficiency > 1/remaining_elements
+                remaining_elements = len([x for x in indexed_multiset if x not in selected_subset])
+                efficiency_threshold = 1.0 / max(1, remaining_elements)
+                if efficiency >= efficiency_threshold or remaining_space >= value * 2:
                     current_sum += value
                     selected_subset.append(value)
 
@@ -228,18 +231,30 @@ class SubsetSumSolver:
         execution_time = time.time() - start_time
         return selected_subset, current_sum, execution_time
 
-    def dynamic_programming_approximation(self) -> Tuple[List[int], int, float]:
+    def dynamic_programming_approximation(self,
+                                        max_target: int = None,
+                                        max_items: int = None) -> Tuple[List[int], int, float]:
         """
         DP-based approximation for better quality (polynomial space).
         Uses pruned dynamic programming approach.
+
+        Args:
+            max_target: Maximum target value for which DP is feasible (default: n^2)
+            max_items: Maximum number of items for which DP is feasible (default: log2(target))
 
         Returns:
             Tuple of (subset, sum, execution_time)
         """
         start_time = time.time()
 
+        # Set reasonable defaults based on problem size
+        if max_target is None:
+            max_target = self.n * self.n  # O(n^2) space complexity
+        if max_items is None:
+            max_items = max(10, int(self.target.bit_length()))  # log-based on target
+
         # For small instances, DP is feasible
-        if self.target <= 1000 and self.n <= 20:
+        if self.target <= max_target and self.n <= max_items:
             # Classic DP table approach
             dp = [[False for _ in range(self.target + 1)] for _ in range(self.n + 1)]
             dp[0][0] = True
@@ -275,24 +290,31 @@ class SubsetSumSolver:
             # Fall back to improved greedy for large instances
             return self.improved_greedy_heuristic()
 
-    def fptas_approximation(self, epsilon: float = 0.1) -> Tuple[List[int], int, float]:
+    def fptas_approximation(self, epsilon: float) -> Tuple[List[int], int, float]:
         """
         Fully Polynomial-Time Approximation Scheme (FPTAS) for Subset Sum.
         Provides (1-ε) approximation ratio in O(n²/ε) time.
 
         Args:
-            epsilon: Approximation parameter (smaller = better approximation, longer time)
+            epsilon: Approximation parameter (0 < ε < 1, smaller = better approximation, longer time)
 
         Returns:
             Tuple of (subset, sum, execution_time)
+
+        Raises:
+            ValueError: If epsilon is not in valid range (0, 1)
         """
         start_time = time.time()
 
         if epsilon <= 0 or epsilon >= 1:
-            epsilon = 0.1  # Default safe value
+            raise ValueError(f"Epsilon must be in range (0, 1), got {epsilon}")
 
-        # For very small instances or high precision, use exact DP
-        if self.n <= 15 or epsilon < 0.05:
+        # Determine threshold based on theoretical complexity bounds
+        exact_dp_threshold = max(10, int(1 / epsilon))  # When exact DP becomes more efficient
+        high_precision_threshold = 0.001  # When exact solution is required
+
+        # For very small instances or high precision requirement, use exact DP
+        if self.n <= exact_dp_threshold or epsilon < high_precision_threshold:
             return self.dynamic_programming_approximation()
 
         # FPTAS scaling technique

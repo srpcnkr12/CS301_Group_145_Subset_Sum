@@ -26,8 +26,8 @@ class SubsetSumInstanceGenerator:
         if seed is not None:
             random.seed(seed)
 
-    def generate_uniform_random(self, n: int, min_val: int = 1, max_val: int = 100,
-                               target_ratio: float = 0.5) -> Tuple[List[int], int]:
+    def generate_uniform_random(self, n: int, min_val: int, max_val: int,
+                               target_ratio: float) -> Tuple[List[int], int]:
         """
         Generate uniform random instance.
 
@@ -46,7 +46,7 @@ class SubsetSumInstanceGenerator:
         return multiset, target
 
     def generate_with_duplicates(self, n: int, unique_values: int,
-                                target_ratio: float = 0.5) -> Tuple[List[int], int]:
+                                target_ratio: float, max_value: int = None) -> Tuple[List[int], int]:
         """
         Generate instance with intentional duplicate values.
 
@@ -62,7 +62,9 @@ class SubsetSumInstanceGenerator:
             unique_values = n
 
         # Create unique values
-        unique_vals = [random.randint(1, 50) for _ in range(unique_values)]
+        if max_value is None:
+            max_value = min(100, n * 10)  # Scale with problem size
+        unique_vals = [random.randint(1, max_value) for _ in range(unique_values)]
 
         # Create multiset with duplicates
         multiset = []
