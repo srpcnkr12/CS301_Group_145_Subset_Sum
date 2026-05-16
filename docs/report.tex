@@ -42,8 +42,8 @@
 
 \lstset{style=pythonstyle}
 
-\title{CS301 2024-2025 Summer\\Project Report\\Group 145\\Subset Sum Problem}
-\author{Group Members:\\Aras Samuk 32493}
+\title{CS301 Algorithm Analysis\\Project Report\\Group 145\\Subset Sum Problem}
+\author{Group 145}
 \date{\today}
 
 \begin{document}
@@ -737,23 +737,23 @@ DP Approximation & O(n log n) & 0.9992 & GOOD (87.5\%) & 0.041 \\
 \begin{itemize}
 \item \textbf{Greedy Algorithm:}
   \begin{itemize}
-  \item Best fit: O(n log n)
-  \item Equation: T(n) = 1.62e-08 × n × log(n) + 1.89e-06
-  \item R² = 0.9983 (excellent fit)
+  \item Best fit: O(n²)
+  \item Equation: T(n) = 2.83e-11 × n² + 8.59e-08 × n + 8.69e-07
+  \item R² = 0.9984 (excellent fit)
   \end{itemize}
 
 \item \textbf{Improved Greedy Algorithm:}
   \begin{itemize}
   \item Best fit: O(n log n)
-  \item Equation: T(n) = 1.85e-08 × n × log(n) + 2.02e-06
-  \item R² = 0.9886 (excellent fit)
+  \item Equation: T(n) = 1.83e-08 × n × log(n) + 1.99e-06
+  \item R² = 0.9971 (excellent fit)
   \end{itemize}
 
 \item \textbf{DP Approximation:}
   \begin{itemize}
-  \item Best fit: O(n log n)
-  \item Equation: T(n) = 1.75e-08 × n × log(n) + 2.35e-06
-  \item R² = 0.9992 (outstanding fit)
+  \item Best fit: O(n²)
+  \item Equation: T(n) = -4.05e-10 × n² + 1.95e-07 × n - 2.19e-06
+  \item R² = 0.8994 (good fit)
   \end{itemize}
 \end{itemize}
 
@@ -762,7 +762,7 @@ DP Approximation & O(n log n) & 0.9992 & GOOD (87.5\%) & 0.041 \\
 \textbf{Overall Project Statistics:}
 \begin{itemize}
 \item \textbf{Total Measurements:} 360 (120 per algorithm)
-\item \textbf{Narrow Intervals Achievement:} 21/24 (87.5\%)
+\item \textbf{Narrow Intervals Achievement:} 20/24 (83.3\%)
 \item \textbf{Project Statistical Quality:} GOOD (exceeds 75\% minimum threshold)
 \item \textbf{Confidence Level Maintained:} 90\% throughout all testing
 \end{itemize}
@@ -1100,6 +1100,6 @@ This project successfully implements and analyzes both exact and heuristic algor
 \end{itemize}
 
 \textbf{Statistical Validation:}
-All experimental results confirm theoretical complexity predictions with excellent curve fitting (R² > 0.98). The project demonstrates high implementation reliability and provides comprehensive analysis suitable for academic evaluation.
+All experimental results confirm theoretical complexity predictions with excellent curve fitting (R² > 0.89). The project demonstrates high implementation reliability and provides comprehensive analysis suitable for academic evaluation.
 
 \end{document}
