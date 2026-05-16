@@ -169,7 +169,7 @@ class PerformanceAnalyzer:
             return {'best_fit': 'None', 'r2': 0.0, 'params': [], 'all_fits': {}}
 
     def generate_performance_plots(self, all_results: Dict[str, List[Dict]],
-                                 output_path: str = '../results/performance_plots.png'):
+                                 output_path: str = 'results/performance_plots.png'):
         """Generate comprehensive performance visualization."""
         fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(15, 12))
         colors = ['#1f77b4', '#ff7f0e', '#2ca02c']
@@ -332,7 +332,7 @@ def run_section6_performance_testing():
     print("GENERATING PERFORMANCE VISUALIZATION")
     print('='*80)
 
-    os.makedirs('../results', exist_ok=True)
+    os.makedirs('results', exist_ok=True)
     analyzer.generate_performance_plots(all_results)
 
     # Save detailed CSV results
@@ -352,7 +352,7 @@ def run_section6_performance_testing():
             })
 
     df = pd.DataFrame(csv_data)
-    df.to_csv('../results/section6_performance_results.csv', index=False)
+    df.to_csv('results/section6_performance_results.csv', index=False)
 
     # Generate comprehensive report
     overall_narrow = sum(len([r for r in results if r['is_narrow']]) for results in all_results.values())
@@ -379,7 +379,7 @@ def run_section6_performance_testing():
         'timestamp': time.strftime('%Y-%m-%d %H:%M:%S')
     }
 
-    with open('../results/section6_performance_report.json', 'w') as f:
+    with open('results/section6_performance_report.json', 'w') as f:
         json.dump(report, f, indent=2)
 
     # Final summary
@@ -392,9 +392,9 @@ def run_section6_performance_testing():
     print(f"  Project statistical quality: {report['summary']['project_statistical_quality']}")
 
     print(f"\nFILES GENERATED:")
-    print(f"✓ Performance plots: ../results/performance_plots.png")
-    print(f"✓ Detailed results: ../results/section6_performance_results.csv")
-    print(f"✓ Complete report: ../results/section6_performance_report.json")
+    print(f"✓ Performance plots: results/performance_plots.png")
+    print(f"✓ Detailed results: results/section6_performance_results.csv")
+    print(f"✓ Complete report: results/section6_performance_report.json")
 
     print(f"\n🎯 SECTION 6 PERFORMANCE TESTING COMPLETE!")
 
