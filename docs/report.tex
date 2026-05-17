@@ -1030,23 +1030,17 @@ Status: PASSED (all algorithms handled impossible target correctly)
 
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}[scale=0.8]
-% Draw multiset elements
-\foreach \x/\val in {1/3,2/4,3/5,4/8,5/11} {
-    \draw (\x,0) circle (0.3);
-    \node at (\x,0) {\val};
-}
-\node at (3,-0.8) {Original Multiset};
+\begin{tabular}{ccccc}
+\textbf{3} & \textbf{4} & \textbf{5} & \textbf{8} & \textbf{11} \\
+$\circ$ & $\bullet$ & $\circ$ & $\bullet$ & $\circ$ \\
+\end{tabular}
+\vspace{0.5cm}
 
-% Draw selected subset
-\foreach \x/\val/\col in {2/4/green,4/8/green,1/3/gray,3/5/gray,5/11/gray} {
-    \draw[thick,\col] (\x,-2) circle (0.3);
-    \node at (\x,-2) {\val};
-}
-\node at (3,-2.8) {Selected Subset: \{4,8\}, Sum=12};
-\end{tikzpicture}
+\textbf{Original Multiset:} $\{3, 4, 5, 8, 11\}$ \\
+\textbf{Selected Subset:} $\{4, 8\}$ (marked with $\bullet$) \\
+\textbf{Sum:} $4 + 8 = 12$ (equals target)
 \caption{Example 1: Subset Sum Solution Visualization}
-\end{figure}
+\end{figure>
 
 \textbf{Example 2: Optimization Instance}
 \begin{itemize}
